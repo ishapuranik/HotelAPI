@@ -1,77 +1,75 @@
-{
-  "hotels": [
-    {
-      "id": 1,
-      "name": "Sentry Mead Hotel",
-      "description": "Situated in Totland Bay on the Isle of Wight, this award-winning, fully licensed, property offers free Wi-Fi in all areas and benefits from free private parking on site.",
-      "location": "Isle of Wight",
-      "rating": 4
-    },
+[
+  {
+    "id": 1,
+    "name": "Sentry Mead Hotel",
+    "description": "Situated in Totland Bay on the Isle of Wight, this award-winning, fully licensed, property offers free Wi-Fi in all areas and benefits from free private parking on site.",
+    "location": "Isle of Wight",
+    "rating": 4
+  },
 
-    {
-      "id": 2,
-      "name": "The Forresters Arm Kilburn",
-      "description": "Located in Kilburn, The Forresters Arms Kilburn features a bar and terrace. Among the facilities of this property are a restaurant, room service and a shared lounge, along with free WiFi.",
-      "location": "Kilburn",
-      "rating": 4
-    },
+  {
+    "id": 2,
+    "name": "The Forresters Arm Kilburn",
+    "description": "Located in Kilburn, The Forresters Arms Kilburn features a bar and terrace. Among the facilities of this property are a restaurant, room service and a shared lounge, along with free WiFi.",
+    "location": "Kilburn",
+    "rating": 4
+  },
 
-    {
-      "id": 3,
-      "name": "The Mendipp Inn",
-      "description": "Situated in Binegar, The Mendip Inn has a restaurant, bar, shared lounge, and free WiFi. At the inn, the rooms are fitted with a desk, a TV, a private bathroom, bed linen and towels.",
-      "location": "Binegar",
-      "rating": 4
-    },
+  {
+    "id": 3,
+    "name": "The Mendipp Inn",
+    "description": "Situated in Binegar, The Mendip Inn has a restaurant, bar, shared lounge, and free WiFi. At the inn, the rooms are fitted with a desk, a TV, a private bathroom, bed linen and towels.",
+    "location": "Binegar",
+    "rating": 4
+  },
 
-    {
-      "id": 4,
-      "name": "The Fountain Oldwood",
-      "description": "Situated in Tenbury, The Fountain Oldwood has a restaurant, bar, garden, and free WiFi throughout the property. Boasting family rooms, this property also provides guests with a children's playground.",
-      "location": "Tenbury",
-      "rating": 4
-    },
+  {
+    "id": 4,
+    "name": "The Fountain Oldwood",
+    "description": "Situated in Tenbury, The Fountain Oldwood has a restaurant, bar, garden, and free WiFi throughout the property. Boasting family rooms, this property also provides guests with a children's playground.",
+    "location": "Tenbury",
+    "rating": 4
+  },
 
-    {
-      "id": 4,
-      "name": "The Fountain Oldwood",
-      "description": "Situated in Tenbury, The Fountain Oldwood has a restaurant, bar, garden, and free WiFi throughout the property. Boasting family rooms, this property also provides guests with a children's playground.",
-      "location": "Tenbury",
-      "rating": 4
-    },
+  {
+    "id": 4,
+    "name": "The Fountain Oldwood",
+    "description": "Situated in Tenbury, The Fountain Oldwood has a restaurant, bar, garden, and free WiFi throughout the property. Boasting family rooms, this property also provides guests with a children's playground.",
+    "location": "Tenbury",
+    "rating": 4
+  },
 
-    {
-      "id": 5,
-      "name": "The Flower Pot Hotel",
-      "description": "At the end of a charming High Street in Lower Sunbury, Surrey, this pub offers real ales, large TV screens, live music in an elegant setting. and free Wi-Fi throughout the building .",
-      "location": "Sunbury",
-      "rating": 4
-    },
+  {
+    "id": 5,
+    "name": "The Flower Pot Hotel",
+    "description": "At the end of a charming High Street in Lower Sunbury, Surrey, this pub offers real ales, large TV screens, live music in an elegant setting. and free Wi-Fi throughout the building .",
+    "location": "Sunbury",
+    "rating": 4
+  },
 
 
-    {
-      "id": 6,
-      "name": "New Flying Horse Inn",
-      "description": "Set in a 17th-century posting house featuring oak beams and gleaming brasses, New Flying Horse Inn boasts an on-site bar and restaurant, as well as a garden with a children's playground.",
-      "location": "Wye",
-      "rating": 5
-    },
+  {
+    "id": 6,
+    "name": "New Flying Horse Inn",
+    "description": "Set in a 17th-century posting house featuring oak beams and gleaming brasses, New Flying Horse Inn boasts an on-site bar and restaurant, as well as a garden with a children's playground.",
+    "location": "Wye",
+    "rating": 5
+  },
 
-    {
-      "id": 7,
-      "name": "Cockets Hotel Restaurant",
-      "description": "Located in Hawes, Cocketts Hotel & Restaurant features a restaurant, bar, terrace, and free WiFi throughout the property. The hotel has family rooms.",
-      "location": "Hawes",
-      "rating": 5
-    },
+  {
+    "id": 7,
+    "name": "Cockets Hotel Restaurant",
+    "description": "Located in Hawes, Cocketts Hotel & Restaurant features a restaurant, bar, terrace, and free WiFi throughout the property. The hotel has family rooms.",
+    "location": "Hawes",
+    "rating": 5
+  },
 
-    {
-      "id": 8,
-      "name": "The Ashbourne Hotel",
-      "description": "Set within the tranquil Lincolnshire village of North Killingholme, The Ashbourne Hotel offers modern, elegant rooms with whirlpool baths in the luxury rooms.",
-      "location": "North Killingholme",
-      "rating": 4
-    }
+  {
+    "id": 8,
+    "name": "The Ashbourne Hotel",
+    "description": "Set within the tranquil Lincolnshire village of North Killingholme, The Ashbourne Hotel offers modern, elegant rooms with whirlpool baths in the luxury rooms.",
+    "location": "North Killingholme",
+    "rating": 4
+  }
 
-  ]
-}
+]

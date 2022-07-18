@@ -9,6 +9,6 @@ namespace HotelLocator.Services
 {
     public interface IHotelLocatorService
     {
-        IEnumerable<GetAllHotelsQueryResponse> GetAllHotels();
+        Task<List<HotelListModel>> GetAllHotels();
     }
 }

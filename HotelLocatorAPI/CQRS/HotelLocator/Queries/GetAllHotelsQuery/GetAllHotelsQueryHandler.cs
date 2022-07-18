@@ -1,11 +1,15 @@
 ﻿using HotelLocator.Services;
 using HotelLocator.Shared.ResponseModels;
 using MediatR;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace HotelLocator.API.CQRS.HotelLocator.Queries.GetAllHotelsQuery
 {
     public class GetAllHotelsQueryHandler :
-        IRequestHandler<GetAllHotelsQuery, IEnumerable<GetAllHotelsQueryResponse>>
+        IRequestHandler<GetAllHotelsQuery, GetAllHotelsQueryResponse>
     {
 
         private readonly IHotelLocatorService _hotelLocatorService;
@@ -15,9 +19,12 @@ namespace HotelLocator.API.CQRS.HotelLocator.Queries.GetAllHotelsQuery
             _hotelLocatorService = hotelLocatorService;
         }
 
-        public Task<IEnumerable<GetAllHotelsQueryResponse>> Handle(GetAllHotelsQuery request, CancellationToken cancellationToken)
+        public async Task<GetAllHotelsQueryResponse> Handle(GetAllHotelsQuery request, CancellationToken cancellationToken)
         {
-            return null;
+            List<HotelListModel> list = null;
+            list = await _hotelLocatorService.GetAllHotels();
+
+            return new GetAllHotelsQueryResponse() { HotelListModel = list };
         }
     }
 }

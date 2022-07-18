@@ -1,17 +1,32 @@
 using FluentValidation;
+using HotelLocator.Services;
 using MediatR;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Security.Principal;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+using HotelLocator.Shared.Tools;
+using System.IO;
+using System;
 
 namespace HotelLocator.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -25,15 +40,20 @@ namespace HotelLocator.API
                     .WithOrigins(Configuration.GetSection("ClientOriginUrls")
                         .AsEnumerable()
                         .Select(c => c.Value)
+                        .Where(v => !v.IsNullOrEmpty())
                         .ToArray())
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
 
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             ConfigureSwagger(services);
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            
+
             ConfigureApis(services);
             ConfigureAuthorization(services);
             ConfigureValidators(services);
@@ -86,7 +106,9 @@ namespace HotelLocator.API
 
         private void ConfigureApis(IServiceCollection services)
         {
-            services.AddScoped<HttpClient, HttpClient>();
+            //services.AddScoped<HttpClient, HttpClient>();
+            services.AddScoped<IHotelLocatorService, HotelLocatorService>();
+            services.AddScoped<IJsonWrapper, JsonWrapper>();
         }
 
         private void ConfigureSpecifications(IServiceCollection services)
@@ -103,7 +125,7 @@ namespace HotelLocator.API
 
         private void ConfigureAuthorization(IServiceCollection services)
         {
-            
+
         }
     }
 }

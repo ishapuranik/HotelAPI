@@ -1,27 +1,37 @@
 ﻿using HotelLocator.Shared.ResponseModels;
+using HotelLocator.Shared.Tools;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace HotelLocator.Services
 {
     public class HotelLocatorService : IHotelLocatorService
     {
-        public IEnumerable<GetAllHotelsQueryResponse> GetAllHotels()
+        private readonly IJsonWrapper _jsonWrapper;
+
+        public HotelLocatorService(IJsonWrapper jsonWrapper)
         {
-            //get the full location of the assembly with DaoTests in it
-            string fullPath = AppDomain.CurrentDomain.BaseDirectory;
+            _jsonWrapper = jsonWrapper;
+        }
 
-            //get the folder that's in
-            string jsonFilePath = Path.Combine(fullPath + "\\HotelLocator.Data\\JsonData\\Hotels.json");
+        public async Task<List<HotelListModel>> GetAllHotels()
+        {
+            string filePath = _jsonWrapper.GetJsonFilePath();
 
-            using (StreamReader r = new StreamReader(jsonFilePath))
-            {
-                string json = r.ReadToEnd();
-                if (!string.IsNullOrWhiteSpace(json))
-                   return JsonConvert.DeserializeObject<List<GetAllHotelsQueryResponse>>(json).AsEnumerable();
+            if (File.Exists(filePath))
+                using (StreamReader r = new StreamReader(filePath))
+                {
+                    string json = r.ReadToEnd();
+                    if (!string.IsNullOrWhiteSpace(json))
+                        return JsonConvert.DeserializeObject<List<HotelListModel>>(json);
+                }
 
-                return null;
-            }
+            return new List<HotelListModel>();
         }
     }
 }
