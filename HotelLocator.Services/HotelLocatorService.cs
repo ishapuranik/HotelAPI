@@ -47,7 +47,7 @@ namespace HotelLocator.Services
             if (list == null || !list.Any())
                 return new List<HotelSearchListModel>();
 
-            var filteredList = list.Where(x => (!string.IsNullOrWhiteSpace(hotelName) && x.name.Contains(hotelName)) || x.rating == rating);
+            var filteredList = list.Where(x => (!string.IsNullOrWhiteSpace(hotelName) && x.Name.Contains(hotelName)) || x.Rating == rating);
 
             if (filteredList.Any())
                 return _mapper.Map<List<HotelSearchListModel>>(filteredList);

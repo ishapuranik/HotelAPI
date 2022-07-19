@@ -14,11 +14,11 @@ namespace HotelLocator.API.Tests.Handlers
         {
             // Arrange
             var hotelList = new List<HotelListModel>();
-            hotelList.Add(new HotelListModel() { id = 1, name = "Hotel 1", description = "Hotel 1 Description", location = "England", rating = 3 });
-            hotelList.Add(new HotelListModel() { id = 2, name = "Hotel 2", description = "Hotel 2 Description", location = "England", rating = 4 });
+            hotelList.Add(new HotelListModel() { Id = 1, Name = "Hotel 1", Description = "Hotel 1 Description", Location = "England", Rating = 3 });
+            hotelList.Add(new HotelListModel() { Id = 2, Name = "Hotel 2", Description = "Hotel 2 Description", Location = "England", Rating = 4 });
 
             var hotelSearchList = new List<HotelSearchListModel>();
-            hotelSearchList.Add(new HotelSearchListModel() { id = 1, name = "Hotel 1", description = "Hotel 1 Description", location = "England", rating = 3 });
+            hotelSearchList.Add(new HotelSearchListModel() { Id = 1, Name = "Hotel 1", Description = "Hotel 1 Description", Location = "England", Rating = 3 });
             
             Mock<IHotelLocatorService> mockHotelLocatorService = new Mock<IHotelLocatorService>();
             mockHotelLocatorService.Setup(x => x.GetAllHotels()).ReturnsAsync(hotelList);
