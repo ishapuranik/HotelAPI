@@ -17,8 +17,8 @@ namespace HotelLocator.API.Tests
             mockJsonWrapper.Setup(x => x.ReadJsonData()).Returns("[{\"id\": 1, \"name\": \"Hotel 1\", \"description\": \"Hotel 1 Description\",  \"location\" : \"England\", \"rating\": 3} , {\"id\": 2, \"name\": \"Hotel 2\", \"description\": \"Hotel 2 Description\",  \"location\" : \"England\", \"rating\": 4 } ]");
 
             var expectedList = new List<HotelListModel>();
-            expectedList.Add(new HotelListModel() { id = 1, name = "Hotel 1", description = "Hotel 1 Description", location = "England", rating = 3 });
-            expectedList.Add(new HotelListModel() { id = 2, name = "Hotel 2", description = "Hotel 2 Description", location = "England", rating = 4 });
+            expectedList.Add(new HotelListModel() { Id = 1, Name = "Hotel 1", Description = "Hotel 1 Description", Location = "England", Rating = 3 });
+            expectedList.Add(new HotelListModel() { Id = 2, Name = "Hotel 2", Description = "Hotel 2 Description", Location = "England", Rating = 4 });
 
             var hotelLocatorService = new HotelLocatorService(mockJsonWrapper.Object, null);
 
