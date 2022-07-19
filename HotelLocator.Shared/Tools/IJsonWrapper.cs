@@ -8,6 +8,7 @@ namespace HotelLocator.Shared.Tools
 {
     public interface IJsonWrapper
     {
-        string GetJsonFilePath();
+        public string GetJsonFilePath();
+        public string ReadJsonData();
     }
 }

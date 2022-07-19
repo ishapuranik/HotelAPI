@@ -14,6 +14,8 @@ using Microsoft.Extensions.Hosting;
 using HotelLocator.Shared.Tools;
 using System.IO;
 using System;
+using AutoMapper;
+using HotelLocator.Shared.ResponseModels;
 
 namespace HotelLocator.API
 {
@@ -55,9 +57,8 @@ namespace HotelLocator.API
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             ConfigureApis(services);
-            ConfigureAuthorization(services);
             ConfigureValidators(services);
-            ConfigureSpecifications(services);
+            ConfigureAutoMapper(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -111,21 +112,22 @@ namespace HotelLocator.API
             services.AddScoped<IJsonWrapper, JsonWrapper>();
         }
 
-        private void ConfigureSpecifications(IServiceCollection services)
-        {
-            //services.AddScoped<IExistsClientCompanyContactSpecification, ExistsClientCompanyContactSpecification>();
-            //services.AddScoped<IExistsClientCompanySpecification, ExistsClientCompanySpecification>();
-
-        }
-
         private void ConfigureValidators(IServiceCollection services)
         {
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
-        private void ConfigureAuthorization(IServiceCollection services)
+        private void ConfigureAutoMapper(IServiceCollection services)
         {
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new HotelSearchListModel());
 
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
+
     }
 }
