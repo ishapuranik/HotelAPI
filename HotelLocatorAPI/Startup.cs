@@ -75,7 +75,7 @@ namespace HotelLocator.API
             if (env.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Argentex.ClientCompany v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelLocator.API v1"));
             }
 
             app.UseCors("CorsPolicy");

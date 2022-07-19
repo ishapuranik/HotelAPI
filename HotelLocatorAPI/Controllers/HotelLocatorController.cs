@@ -3,8 +3,6 @@ using HotelLocator.API.CQRS.HotelLocator.Queries.GetHotelListBySearchParam;
 using HotelLocatorAPI.Core;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace HotelLocatorAPI.Controllers

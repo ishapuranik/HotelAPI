@@ -1,8 +1,7 @@
-using HotelLocator.API;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Argentex.ClientCompanies
+namespace HotelLocator.API
 {
     public class Program
     {
