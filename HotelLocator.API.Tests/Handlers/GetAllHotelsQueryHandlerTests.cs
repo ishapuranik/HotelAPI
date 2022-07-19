@@ -3,11 +3,6 @@ using HotelLocator.API.CQRS.HotelLocator.Queries.GetAllHotelsQuery;
 using HotelLocator.Services;
 using HotelLocator.Shared.ResponseModels;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace HotelLocator.API.Tests.Handlers

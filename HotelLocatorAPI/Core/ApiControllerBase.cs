@@ -1,9 +1,10 @@
 ﻿using HotelLocator.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Threading.Tasks;
-using System.Transactions;
 
 namespace HotelLocatorAPI.Core
 {
@@ -39,26 +40,37 @@ namespace HotelLocatorAPI.Core
         /// </returns>
         protected async Task<IActionResult> HandleRequest<TResponse>(IRequest<TResponse> request) where TResponse : BaseResponseModel
         {
-            var response = await _mediator.Send(request);
-
-            switch (response.ResponseCode)
+            try
             {
-                case HttpStatusCode.OK:
-                    return Ok(response);
+                var response = await _mediator.Send(request);
 
-                case HttpStatusCode.NoContent:
-                    return NoContent();
+                switch (response.ResponseCode)
+                {
+                    case HttpStatusCode.OK:
+                        return Ok(response);
 
-                case HttpStatusCode.NotFound:
-                    return NotFound(response);
+                    case HttpStatusCode.NoContent:
+                        return NoContent();
 
-                case HttpStatusCode.BadRequest:
-                    return BadRequest(response);
+                    case HttpStatusCode.NotFound:
+                        return NotFound(response);
 
-                case HttpStatusCode.InternalServerError:
-                case HttpStatusCode.BadGateway:
-                default:
-                    return StatusCode((int)response.ResponseCode, response);
+                    case HttpStatusCode.BadRequest:
+                        return BadRequest(response);
+
+                    case HttpStatusCode.InternalServerError:
+                    case HttpStatusCode.BadGateway:
+                    default:
+                        return StatusCode((int)response.ResponseCode, response);
+                }
+            }
+            catch(ValidationException ex)
+            {
+                return StatusCode((int)HttpStatusCode.PreconditionFailed, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, ex.Message);
             }
         }
     }

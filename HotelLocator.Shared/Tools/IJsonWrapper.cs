@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelLocator.Shared.Tools
+﻿namespace HotelLocator.Shared.Tools
 {
     public interface IJsonWrapper
     {

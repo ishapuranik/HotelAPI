@@ -1,11 +1,8 @@
 ﻿using HotelLocator.Shared.ResponseModels;
 using HotelLocator.Shared.Tools;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 
@@ -53,7 +50,7 @@ namespace HotelLocator.Services
             var filteredList = list.Where(x => (!string.IsNullOrWhiteSpace(hotelName) && x.name.Contains(hotelName)) || x.rating == rating);
 
             if (filteredList.Any())
-                return _mapper.Map<List<HotelSearchListModel>>(list);
+                return _mapper.Map<List<HotelSearchListModel>>(filteredList);
 
             return new List<HotelSearchListModel>();
         }

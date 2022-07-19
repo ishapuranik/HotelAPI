@@ -1,7 +1,5 @@
-﻿using HotelLocator.Shared;
-using HotelLocator.Shared.ResponseModels;
+﻿using HotelLocator.Shared.ResponseModels;
 using MediatR;
-using System.Collections.Generic;
 
 namespace HotelLocator.API.CQRS.HotelLocator.Queries.GetHotelListBySearchParam
 {

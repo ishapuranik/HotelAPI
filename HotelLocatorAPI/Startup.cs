@@ -3,8 +3,6 @@ using HotelLocator.Services;
 using MediatR;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using System.Security.Principal;
-using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +13,8 @@ using HotelLocator.Shared.Tools;
 using System.IO;
 using System;
 using AutoMapper;
-using HotelLocator.Shared.ResponseModels;
+using HotelLocator.API.Mappings;
+using HotelLocatorAPI.Core;
 
 namespace HotelLocator.API
 {
@@ -54,7 +53,11 @@ namespace HotelLocator.API
             );
 
             ConfigureSwagger(services);
+
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             ConfigureApis(services);
             ConfigureValidators(services);
@@ -84,7 +87,7 @@ namespace HotelLocator.API
             app.UseAuthorization();
 
             app.UseAuthentication();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -107,7 +110,6 @@ namespace HotelLocator.API
 
         private void ConfigureApis(IServiceCollection services)
         {
-            //services.AddScoped<HttpClient, HttpClient>();
             services.AddScoped<IHotelLocatorService, HotelLocatorService>();
             services.AddScoped<IJsonWrapper, JsonWrapper>();
         }
@@ -121,13 +123,11 @@ namespace HotelLocator.API
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new HotelSearchListModel());
-
+                mc.AddProfile(new HotelLocatorMapping());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
         }
-
     }
 }
