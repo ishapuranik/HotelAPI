@@ -1,10 +1,11 @@
 1. How long did you spend on the coding test and how would you improve your solution if you had more time? (If you were unable to spend as much time as you would have liked on the coding test, use your answer as an opportunity to explain what you would add). 
 
 #Explaination: I have spent 3h 30m in implementing the API and Angular UI code. Having more time, I would have done below things:
+
 		#On API:
-			####a. Move json file path to appSettings.json file than hardcoded at the moment in class
-			####b. Implement Error Handling middleware - which will make sure logs are created at least in a log file if not in db exception
-			####c. Fetch data from database - by implementing EF Core features
+			a. Move json file path to appSettings.json file than hardcoded at the moment in class
+			b. Implement Error Handling middleware - which will make sure logs are created at least in a log file if not in db exception
+			c. Fetch data from database - by implementing EF Core features
 		#Angular UI: 
 			####a. I am new to Angular and lack of hands-on, but I am willing to learn and adapt quickly. For me, it will take more time to implement Rating component. Whatever I could do in given time I did my best. I am going to take this as a challenge and will continue adding new feature and implement solution.
 			####b. Given the chance, I can walkthrough more of my experience.
