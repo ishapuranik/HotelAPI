@@ -13,9 +13,8 @@
 2. Describe the tooling / libraries / packages you chose to use for your development process and the 
 reasons why. 
 
-
 #Explaination:
-		#API: 
+		API: 
 			All the packages which are used are related to 
 					#Dependency Injection, MediatR, Fluent Assertions which will allow to write unit tests in more readable format. 
 					#Swagger (Swashbuckle.AspNetCore) -> which will allow to test the endpoints quickly 
@@ -26,15 +25,13 @@ reasons why.
 3. Describe how this solution would be deployed and run in your chosen cloud provider and any impact 
 this may have on its development.
 
-
-#Explaination:
-			Both solution can be deployed via Teamcity and Octopus to AWS environment (similarly on Azure as well). Once, Teamcity built the package successfully, using Octopus we can deploy to AWS EC2 instances. We just need to make sure
+Explaination:
+		Both solution can be deployed via Teamcity and Octopus to AWS environment (similarly on Azure as well). Once, Teamcity built the package successfully, using Octopus we can deploy to AWS EC2 instances. We just need to make sure
 		
 4. If the application was enhanced to contain business sensitive data what considerations and possible 
 solutions would you consider for securing it? 
 
-
-#Explaination: 
+Explaination: 
 			a. Use of Authentication on login and that can be added with further step by having two-factor authentication
 			b. Use of firewall, Gateway implementation to access to APIs 
 			c. JwtBearerToken authentication to authenticate request sent to API
@@ -43,8 +40,7 @@ solutions would you consider for securing it?
 5. How would you track down a performance issue in production and what was your last experience of 
 this?
 
-
-#Explaination: 
+Explaination: 
 			a. Run small load test on the server and verify the memory / CPU utilization. If projects are hosted on AWS EC2 instance then we can monitor the performance on a particular time to check what was the CPU utilization and what different resources were running. 
 			b. Check if we can use lazy loading in Angular Application / local storage feature like caching for most frequently requested data. 
 			c. Use pagination if data is huge
