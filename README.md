@@ -26,7 +26,7 @@ reasons why.
 this may have on its development.
 
 Explaination:
-		Both solution can be deployed via Teamcity and Octopus to AWS environment (similarly on Azure as well). Once, Teamcity built the package successfully, using Octopus we can deploy to AWS EC2 instances. We just need to make sure
+		Both solution can be deployed via Teamcity and Octopus to AWS environment (similarly on Azure as well). Once, Teamcity built the package successfully, using Octopus we can deploy to AWS EC2 instances.
 		
 4. If the application was enhanced to contain business sensitive data what considerations and possible 
 solutions would you consider for securing it? 
